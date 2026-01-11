@@ -1,6 +1,8 @@
-# Phaser Vue Template
+# Phaser Vue Template - WebSocket Heart Control
 
 This is a Phaser 3 project template that uses the Vue framework and Vite for bundling. It includes a bridge for Vue to Phaser game communication, hot-reloading for quick development workflow and scripts to generate production-ready builds.
+
+**This version has been modified to include WebSocket-based real-time heart control, simulating multi-user interaction.**
 
 **[This Template is also available as a TypeScript version.](https://github.com/phaserjs/template-vue-ts)**
 
@@ -23,10 +25,51 @@ This template has been updated for:
 | Command | Description |
 |---------|-------------|
 | `npm install` | Install project dependencies |
+| `npm run ws-server` | Start the WebSocket server on port 8081 |
 | `npm run dev` | Launch a development web server |
 | `npm run build` | Create a production build in the `dist` folder |
 | `npm run dev-nolog` | Launch a development web server without sending anonymous data (see "About log.js" below) |
 | `npm run build-nolog` | Create a production build in the `dist` folder without sending anonymous data (see "About log.js" below) |
+
+## WebSocket Heart Control Feature
+
+This template has been enhanced with WebSocket functionality to enable real-time control of hearts (小心心) in the game scene. Multiple users can simultaneously add and move hearts through WebSocket messages, simulating a collaborative multi-user environment.
+
+### Quick Start
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start the WebSocket server (in one terminal):**
+   ```bash
+   npm run ws-server
+   ```
+
+3. **Start the development server (in another terminal):**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open the application:**
+   Navigate to `http://localhost:8080` in your browser.
+
+5. **Use the interface:**
+   - Click "Change Scene" to navigate to the Game scene
+   - Click "Add New Heart ❤️" to add hearts at random positions
+   - Click "Move Random Heart" to move a random heart to a new position
+
+### Multi-User Simulation
+
+To test multi-user functionality, run the test script:
+```bash
+node test-multiuser.js
+```
+
+This will simulate 3 users simultaneously controlling hearts via WebSocket.
+
+For detailed WebSocket API documentation, see [WEBSOCKET_API.md](WEBSOCKET_API.md).
 
 ## Writing Code
 
