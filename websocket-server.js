@@ -1,4 +1,4 @@
-import { WebSocketServer } from 'ws';
+import { WebSocketServer, WebSocket } from 'ws';
 
 const PORT = 8081;
 const wss = new WebSocketServer({ port: PORT });
@@ -25,7 +25,7 @@ wss.on('connection', (ws) => {
 
             // Broadcast the message to all connected clients
             clients.forEach((client) => {
-                if (client.readyState === 1) { // 1 = OPEN
+                if (client.readyState === WebSocket.OPEN) {
                     client.send(JSON.stringify(message));
                 }
             });

@@ -39,7 +39,7 @@ Adds a new heart to the game scene.
   "id": "unique-heart-id",
   "x": 512,
   "y": 384,
-  "color": "0xff0000"  // Optional: hex color code
+  "color": "0xff0000"  // Optional: hex color string (with or without '0x' prefix)
 }
 ```
 
@@ -50,7 +50,8 @@ ws.send(JSON.stringify({
   data: {
     id: 'heart-1',
     x: 300,
-    y: 200
+    y: 200,
+    color: '0xff0000'  // Red color
   }
 }));
 ```

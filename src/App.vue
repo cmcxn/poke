@@ -131,9 +131,9 @@ const addSprite = () => {
 const moveRandomHeart = () => {
     const scene = toRaw(phaserRef.value.scene);
     
-    if (scene && scene.scene.key === 'Game' && scene.hearts.size > 0) {
-        // Get a random heart ID
-        const heartIds = Array.from(scene.hearts.keys());
+    if (scene && scene.scene.key === 'Game' && scene.getHeartCount() > 0) {
+        // Get a random heart ID using public method
+        const heartIds = scene.getHeartIds();
         const randomId = heartIds[Math.floor(Math.random() * heartIds.length)];
         
         // Random new position

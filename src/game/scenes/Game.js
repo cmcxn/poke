@@ -38,7 +38,9 @@ export class Game extends Scene
         
         // Set color tint if provided
         if (color) {
-            heart.setTint(parseInt(color, 16));
+            // Handle both '0xff0000' and 'ff0000' formats
+            const colorValue = color.startsWith('0x') ? parseInt(color, 16) : parseInt(color, 16);
+            heart.setTint(colorValue);
         } else {
             // Random tint for visual variety
             const colors = [0xff0000, 0xff69b4, 0xff1493, 0xdc143c, 0xff6347];
@@ -92,6 +94,14 @@ export class Game extends Scene
                 }
             });
         }
+    }
+
+    getHeartIds() {
+        return Array.from(this.hearts.keys());
+    }
+
+    getHeartCount() {
+        return this.hearts.size;
     }
 
     changeScene ()
