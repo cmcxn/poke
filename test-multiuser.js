@@ -137,9 +137,10 @@ function simulateUser3() {
         }, 2000);
         
         // User 3 continuously moves their heart
+        const MAX_MOVES = 3;
         let moveCount = 0;
         const moveInterval = setInterval(() => {
-            if (moveCount >= 3) {
+            if (moveCount >= MAX_MOVES) {
                 clearInterval(moveInterval);
                 return;
             }

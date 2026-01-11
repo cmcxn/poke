@@ -23,7 +23,8 @@ wss.on('connection', (ws) => {
             const message = JSON.parse(data.toString());
             console.log('Received message:', message);
 
-            // Broadcast the message to all connected clients
+            // Broadcast the message to all connected clients (including sender)
+            // This allows all clients to see the same state and confirms the action
             clients.forEach((client) => {
                 if (client.readyState === WebSocket.OPEN) {
                     client.send(JSON.stringify(message));

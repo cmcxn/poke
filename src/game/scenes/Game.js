@@ -38,9 +38,9 @@ export class Game extends Scene
         
         // Set color tint if provided
         if (color) {
-            // Handle both '0xff0000' and 'ff0000' formats
-            const colorValue = color.startsWith('0x') ? parseInt(color, 16) : parseInt(color, 16);
-            heart.setTint(colorValue);
+            // Parse hex color string (handles both '0xff0000' and 'ff0000' formats)
+            const colorStr = color.startsWith('0x') ? color.substring(2) : color;
+            heart.setTint(parseInt(colorStr, 16));
         } else {
             // Random tint for visual variety
             const colors = [0xff0000, 0xff69b4, 0xff1493, 0xdc143c, 0xff6347];
